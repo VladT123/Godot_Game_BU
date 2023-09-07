@@ -1,0 +1,168 @@
+[gd_scene load_steps=12 format=3 uid="uid://c7fc8soemy4q8"]
+
+[ext_resource type="Texture2D" uid="uid://cwenxtxk7m88h" path="res://graphics/player/player.png" id="1_welyy"]
+[ext_resource type="Script" path="res://scenes/player/player.gd" id="1_x2vsx"]
+[ext_resource type="Texture2D" uid="uid://xmr45a34wh1b" path="res://graphics/decals/white.png" id="3_p5dsh"]
+[ext_resource type="Texture2D" uid="uid://ccay3or7g83ed" path="res://graphics/lights/textures/circle.png" id="4_6685v"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ojo0h"]
+lifetime_randomness = 1.0
+emission_shape = 1
+emission_sphere_radius = 40.33
+particle_flag_disable_z = true
+spread = 15.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 125.0
+initial_velocity_max = 250.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 0.5
+color = Color(0.580392, 0.886275, 1, 0.0313726)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_eiq8o"]
+radius = 73.1642
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_xmj0n"]
+polygon = PackedVector2Array(-19, -73, -10, -74, -5, -78, 7, -81, 17, -80, 28, -80, 39, -75, 46, -69, 49, -58, 55, -56, 56, -52, 63, -49, 81, -31, 80, -19, 74, -19, 77, -6, 67, -1, 62, 3, 63.765, 14.0318, 60, 27, 49, 28, 30, 34, 23, 41, -1, 47, -14, 48, -31, 46, -36, 32, -41, 21, -48, 10, -50, 2, -54, -4, -59, -21, -58, -35, -53, -47, -47, -57, -39, -65, -31, -66, -26, -67)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_jchxr"]
+polygon = PackedVector2Array(23, 7, 16, 8, 18, 1, 1, -3, -8, -4, -21, -13, -28, -12, -36, 18, -48, 48, -47, 52, -11, 52, -8, 49, -5, 41, -27, 42, -20, 32, 23, 28, 27, 20, 27, 12)
+
+[sub_resource type="Animation" id="Animation_5gti7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player_Image:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_goolr"]
+resource_name = "i_frames"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player_Image:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 0, 0, 1), Color(1, 1, 1, 1), Color(1, 0, 0, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"i_frame_reset"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o7rcl"]
+_data = {
+"RESET": SubResource("Animation_5gti7"),
+"i_frames": SubResource("Animation_goolr")
+}
+
+[node name="Player" type="CharacterBody2D" groups=["Entity"]]
+collision_mask = 31
+script = ExtResource("1_x2vsx")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(132, 24)
+scale = Vector2(1.00541, 1)
+emitting = false
+amount = 1000
+process_material = SubResource("ParticleProcessMaterial_ojo0h")
+texture = ExtResource("3_p5dsh")
+lifetime = 0.1
+one_shot = true
+
+[node name="Player_Image" type="Sprite2D" parent="."]
+position = Vector2(35, 6)
+rotation = 1.5708
+texture = ExtResource("1_welyy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_eiq8o")
+
+[node name="Laser_start_pos" type="Node2D" parent="."]
+position = Vector2(-14, 10)
+
+[node name="Marker2D" type="Marker2D" parent="Laser_start_pos"]
+position = Vector2(133, 9)
+
+[node name="Marker2D2" type="Marker2D" parent="Laser_start_pos"]
+position = Vector2(133, 20)
+
+[node name="Marker2D3" type="Marker2D" parent="Laser_start_pos"]
+position = Vector2(138, 14)
+
+[node name="PlayerShadow" type="LightOccluder2D" parent="."]
+position = Vector2(-8, 25)
+occluder = SubResource("OccluderPolygon2D_xmj0n")
+
+[node name="GunFlash" type="PointLight2D" parent="."]
+position = Vector2(105, 6)
+enabled = false
+color = Color(0.172549, 0.996078, 0.996078, 1)
+energy = 5.0
+shadow_enabled = true
+shadow_item_cull_mask = 2
+texture = ExtResource("4_6685v")
+texture_scale = 0.25
+
+[node name="Flashlight" type="PointLight2D" parent="."]
+position = Vector2(89, 43)
+enabled = false
+color = Color(0.644388, 0.607362, 0.593891, 1)
+energy = 5.0
+shadow_enabled = true
+texture = ExtResource("4_6685v")
+texture_scale = 4.0
+
+[node name="GunShadow" type="LightOccluder2D" parent="."]
+position = Vector2(105, 6)
+occluder = SubResource("OccluderPolygon2D_jchxr")
+
+[node name="Timers" type="Node" parent="."]
+
+[node name="Timer_Laser" type="Timer" parent="Timers"]
+wait_time = 0.25
+one_shot = true
+
+[node name="Timer_Grenade" type="Timer" parent="Timers"]
+wait_time = 2.0
+one_shot = true
+
+[node name="Timer_Flashstick" type="Timer" parent="Timers"]
+wait_time = 10.0
+one_shot = true
+
+[node name="IFrames" type="Timer" parent="Timers"]
+wait_time = 0.5
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_o7rcl")
+}
+
+[connection signal="timeout" from="Timers/Timer_Laser" to="." method="_on_timer_laser_timeout"]
+[connection signal="timeout" from="Timers/Timer_Grenade" to="." method="_on_timer_grenade_timeout"]
+[connection signal="timeout" from="Timers/Timer_Flashstick" to="." method="_on_timer_flashstick_timeout"]

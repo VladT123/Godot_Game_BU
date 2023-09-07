@@ -1,0 +1,144 @@
+[gd_scene load_steps=15 format=3 uid="uid://byearq7whq10d"]
+
+[ext_resource type="Script" path="res://scenes/enemies/bug.gd" id="1_81cg7"]
+[ext_resource type="Texture2D" uid="uid://cg3fro0itiue5" path="res://graphics/enemies/bug/attack/00022.png" id="4_fjleb"]
+[ext_resource type="Texture2D" uid="uid://noeetjfawe3m" path="res://graphics/enemies/bug/attack/00010.png" id="5_lewui"]
+[ext_resource type="Texture2D" uid="uid://bn5tiowmx7xu0" path="res://graphics/enemies/bug/attack/00030.png" id="22_mjbsw"]
+[ext_resource type="Texture2D" uid="uid://dgqtgamay2e5" path="res://graphics/enemies/bug/walk/00000.png" id="23_q0vfg"]
+[ext_resource type="Texture2D" uid="uid://cqdrpbcjr4dep" path="res://graphics/enemies/bug/walk/00004.png" id="27_wl7yw"]
+[ext_resource type="Texture2D" uid="uid://bi5b8ilqa8pva" path="res://graphics/enemies/bug/walk/00008.png" id="31_h3xfx"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y2k5j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_lewui")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_fjleb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_mjbsw")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("27_wl7yw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_h3xfx")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 3.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j4qcy"]
+radius = 41.0
+height = 144.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m6ods"]
+radius = 547.033
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6ivia"]
+radius = 95.0
+
+[sub_resource type="Animation" id="Animation_rku07"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_7gfh0"]
+resource_name = "i_frames"
+length = 0.2
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l05ha"]
+_data = {
+"RESET": SubResource("Animation_rku07"),
+"i_frames": SubResource("Animation_7gfh0")
+}
+
+[node name="Bug" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 11
+script = ExtResource("1_81cg7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
+rotation = 1.5708
+scale = Vector2(0.07, 0.07)
+sprite_frames = SubResource("SpriteFrames_y2k5j")
+animation = &"walk"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("23_q0vfg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_j4qcy")
+
+[node name="NoticeArea" type="Area2D" parent="."]
+visible = false
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NoticeArea"]
+shape = SubResource("CircleShape2D_m6ods")
+
+[node name="AttackArea" type="Area2D" parent="."]
+visible = false
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+shape = SubResource("CircleShape2D_6ivia")
+
+[node name="Timers" type="Node" parent="."]
+
+[node name="AttackTimer" type="Timer" parent="Timers"]
+wait_time = 0.5
+one_shot = true
+
+[node name="IFrames" type="Timer" parent="Timers"]
+wait_time = 0.5
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_l05ha")
+}
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="body_entered" from="NoticeArea" to="." method="_on_notice_area_body_entered"]
+[connection signal="body_exited" from="NoticeArea" to="." method="_on_notice_area_body_exited"]
+[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
+[connection signal="body_exited" from="AttackArea" to="." method="_on_attack_area_body_exited"]
+[connection signal="timeout" from="Timers/AttackTimer" to="." method="_on_attack_timer_timeout"]
+[connection signal="timeout" from="Timers/IFrames" to="." method="_on_i_frames_timeout"]

@@ -1,0 +1,122 @@
+[gd_scene load_steps=11 format=3 uid="uid://bs6ypynbwh6mv"]
+
+[ext_resource type="Texture2D" uid="uid://cox6unpucui1v" path="res://graphics/objects/base.png" id="1_edbeo"]
+[ext_resource type="Texture2D" uid="uid://bmqdwwbm2preq" path="res://graphics/objects/electric_box.png" id="2_ajku4"]
+[ext_resource type="Texture2D" uid="uid://b7f1l7lng3oir" path="res://graphics/objects/ventilation_surface.png" id="3_cwcsf"]
+[ext_resource type="Texture2D" uid="uid://de4lgnbnl4426" path="res://graphics/objects/ventilation_surface_small.png" id="4_bpe1r"]
+[ext_resource type="Texture2D" uid="uid://xmr45a34wh1b" path="res://graphics/decals/white.png" id="5_g1fjl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4mjty"]
+size = Vector2(540, 286)
+
+[sub_resource type="Gradient" id="Gradient_02mql"]
+colors = PackedColorArray(0.439311, 0, 0.058861, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_of1gs"]
+gradient = SubResource("Gradient_02mql")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_v6x7j"]
+emission_shape = 1
+emission_sphere_radius = 53.77
+particle_flag_disable_z = true
+gravity = Vector3(50, -45, 0)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_max = 3.0
+color_ramp = SubResource("GradientTexture1D_of1gs")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hg5p6"]
+emission_shape = 1
+emission_sphere_radius = 53.77
+particle_flag_disable_z = true
+gravity = Vector3(50, -45, 0)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_max = 3.0
+color = Color(0.588235, 0.588235, 0.588235, 0.121569)
+
+[node name="BrokenWall" type="StaticBody2D"]
+collision_layer = 4
+collision_mask = 11
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_4mjty")
+
+[node name="Base" type="Sprite2D" parent="."]
+position = Vector2(-55.5, -0.5)
+texture = ExtResource("1_edbeo")
+
+[node name="ElectricBox" type="Sprite2D" parent="."]
+position = Vector2(87.5, 13.5)
+texture = ExtResource("2_ajku4")
+
+[node name="VentilationSurface" type="Sprite2D" parent="."]
+position = Vector2(-173.5, 47.5)
+texture = ExtResource("3_cwcsf")
+
+[node name="VentilationSurfaceSmall" type="Sprite2D" parent="."]
+position = Vector2(-10.5, -82.5)
+texture = ExtResource("4_bpe1r")
+
+[node name="Fire" type="GPUParticles2D" parent="."]
+modulate = Color(0.988235, 0.988235, 0.988235, 1)
+position = Vector2(-3.8147e-06, 27)
+scale = Vector2(1, 0.947716)
+amount = 200
+process_material = SubResource("ParticleProcessMaterial_v6x7j")
+texture = ExtResource("5_g1fjl")
+lifetime = 2.0
+
+[node name="Smoke" type="GPUParticles2D" parent="."]
+modulate = Color(0.988235, 0.988235, 0.988235, 1)
+position = Vector2(45, 56)
+scale = Vector2(1, 0.947716)
+amount = 200
+process_material = SubResource("ParticleProcessMaterial_hg5p6")
+texture = ExtResource("5_g1fjl")
+lifetime = 2.0
+
+[node name="Smoke3" type="GPUParticles2D" parent="."]
+modulate = Color(0.988235, 0.988235, 0.988235, 1)
+position = Vector2(-169, 30)
+scale = Vector2(1, 0.947716)
+amount = 200
+process_material = SubResource("ParticleProcessMaterial_hg5p6")
+texture = ExtResource("5_g1fjl")
+lifetime = 2.0
+
+[node name="Smoke5" type="GPUParticles2D" parent="."]
+modulate = Color(0.988235, 0.988235, 0.988235, 1)
+position = Vector2(152, -103)
+scale = Vector2(1, 0.947716)
+amount = 200
+process_material = SubResource("ParticleProcessMaterial_hg5p6")
+texture = ExtResource("5_g1fjl")
+lifetime = 2.0
+
+[node name="Smoke6" type="GPUParticles2D" parent="."]
+modulate = Color(0.988235, 0.988235, 0.988235, 1)
+position = Vector2(-171, -72)
+scale = Vector2(1, 0.947716)
+amount = 200
+process_material = SubResource("ParticleProcessMaterial_hg5p6")
+texture = ExtResource("5_g1fjl")
+lifetime = 2.0
+
+[node name="Smoke4" type="GPUParticles2D" parent="."]
+modulate = Color(0.988235, 0.988235, 0.988235, 1)
+position = Vector2(-56, 59)
+scale = Vector2(1, 0.947716)
+amount = 200
+process_material = SubResource("ParticleProcessMaterial_hg5p6")
+texture = ExtResource("5_g1fjl")
+lifetime = 2.0
+
+[node name="Smoke2" type="GPUParticles2D" parent="."]
+modulate = Color(0.988235, 0.988235, 0.988235, 1)
+position = Vector2(-50, 1.00001)
+scale = Vector2(1, 0.947716)
+amount = 200
+process_material = SubResource("ParticleProcessMaterial_hg5p6")
+texture = ExtResource("5_g1fjl")
+lifetime = 2.0

@@ -1,0 +1,97 @@
+[gd_scene load_steps=8 format=3 uid="uid://dodlq8ghmbxcu"]
+
+[ext_resource type="Script" path="res://scenes/enemies/scout.gd" id="1_d7cqv"]
+[ext_resource type="Texture2D" uid="uid://ceqmmo2hykfv8" path="res://graphics/enemies/scout.png" id="1_gy7u4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b4ju4"]
+radius = 47.0956
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sstu3"]
+radius = 1129.02
+
+[sub_resource type="Animation" id="Animation_rb5ty"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Scout:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0.969395, 0.969395, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_7eefe"]
+resource_name = "i_frames"
+length = 0.2
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Scout:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a4nl1"]
+_data = {
+"RESET": SubResource("Animation_rb5ty"),
+"i_frames": SubResource("Animation_7eefe")
+}
+
+[node name="Scout" type="CharacterBody2D" groups=["Entity", "Scouts"]]
+collision_layer = 2
+collision_mask = 15
+script = ExtResource("1_d7cqv")
+
+[node name="Scout" type="Sprite2D" parent="."]
+modulate = Color(1, 0.969395, 0.969395, 1)
+position = Vector2(29, 29)
+rotation = 1.5708
+texture = ExtResource("1_gy7u4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_b4ju4")
+
+[node name="AttackArea" type="Area2D" parent="."]
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+visible = false
+shape = SubResource("CircleShape2D_sstu3")
+
+[node name="LaserSpawnPositions" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="LaserSpawnPositions"]
+position = Vector2(103, -26)
+
+[node name="Marker2D3" type="Marker2D" parent="LaserSpawnPositions"]
+position = Vector2(103, 9)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_a4nl1")
+}
+
+[node name="Timers" type="Node" parent="."]
+
+[node name="LaserCooldown" type="Timer" parent="Timers"]
+wait_time = 0.5
+
+[node name="IFrames" type="Timer" parent="Timers"]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
+[connection signal="body_exited" from="AttackArea" to="." method="_on_attack_area_body_exited"]
+[connection signal="timeout" from="Timers/LaserCooldown" to="." method="_on_laser_cooldown_timeout"]
+[connection signal="timeout" from="Timers/IFrames" to="." method="_on_i_frames_timeout"]

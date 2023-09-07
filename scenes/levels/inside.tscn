@@ -1,0 +1,1120 @@
+[gd_scene load_steps=37 format=3 uid="uid://bxaeshipi4hw4"]
+
+[ext_resource type="PackedScene" uid="uid://chgw35ot3cfnw" path="res://scenes/levels/level.tscn" id="1_n2ksk"]
+[ext_resource type="Script" path="res://scenes/levels/inside.gd" id="2_g4vj4"]
+[ext_resource type="Texture2D" uid="uid://cew5ks5dnv82f" path="res://graphics/ground/dirt.png" id="2_lc2qg"]
+[ext_resource type="TileSet" uid="uid://bbdpxmpdbcyvt" path="res://scenes/levels/house_1.tres" id="2_o5iav"]
+[ext_resource type="PackedScene" uid="uid://bs6ypynbwh6mv" path="res://scenes/Objects/broken_wall.tscn" id="3_ui4a5"]
+[ext_resource type="PackedScene" uid="uid://duerk4ppv18m5" path="res://scenes/Objects/bed.tscn" id="4_qe6dx"]
+[ext_resource type="PackedScene" uid="uid://dobfrf0th4np6" path="res://scenes/Objects/toilet.tscn" id="5_4lwji"]
+[ext_resource type="Texture2D" uid="uid://dylyf78cffelj" path="res://graphics/decals/blood.png" id="5_j16ud"]
+[ext_resource type="PackedScene" uid="uid://c3hlifg0khqac" path="res://scenes/Objects/box.tscn" id="6_82vgk"]
+[ext_resource type="Texture2D" uid="uid://d0mnnw34sgsiy" path="res://graphics/decals/brushes/brush056.png" id="6_md71r"]
+[ext_resource type="Texture2D" uid="uid://d08ssv8n8dwmy" path="res://graphics/decals/brushes/brush044.png" id="7_4kday"]
+[ext_resource type="PackedScene" uid="uid://bar3cmi7kxuxx" path="res://scenes/Objects/simple_light.tscn" id="8_i18ja"]
+[ext_resource type="Texture2D" uid="uid://230hxbdq42yk" path="res://graphics/decals/brushes/brush054.png" id="8_pgwy1"]
+[ext_resource type="Texture2D" uid="uid://drmamo2nldc1n" path="res://graphics/decals/brushes/brush045.png" id="8_tvans"]
+[ext_resource type="Texture2D" uid="uid://4mrjnsq2p5ev" path="res://graphics/decals/brushes/brush048.png" id="9_4kg02"]
+[ext_resource type="PackedScene" uid="uid://bonlngmv6jqts" path="res://scenes/Objects/steam_vent.tscn" id="9_7nc30"]
+[ext_resource type="PackedScene" uid="uid://cu5bcsqqhvyxp" path="res://scenes/Objects/light_fan_animation.tscn" id="9_ao4tm"]
+[ext_resource type="Texture2D" uid="uid://dvodgsyxv0esv" path="res://graphics/decals/brushes/brush049.png" id="10_4iiuf"]
+[ext_resource type="Texture2D" uid="uid://80tfcv3ibsc8" path="res://graphics/decals/brushes/brush051.png" id="10_05x4y"]
+[ext_resource type="Texture2D" uid="uid://d02w8dpiveh1w" path="res://graphics/decals/brushes/brush047.png" id="11_b2im0"]
+[ext_resource type="Texture2D" uid="uid://bukmyw1n8gup0" path="res://graphics/decals/brushes/brush052.png" id="11_ovmiy"]
+[ext_resource type="Texture2D" uid="uid://cmril7q5jor3u" path="res://graphics/lights/overlays/infrastructure.png" id="12_xd17m"]
+[ext_resource type="Texture2D" uid="uid://bp02e5lsl1hcj" path="res://graphics/lights/overlays/hole.png" id="13_1cgqi"]
+[ext_resource type="Texture2D" uid="uid://cr7jvi5bfggcm" path="res://graphics/lights/overlays/lattice.png" id="14_ojek5"]
+[ext_resource type="Texture2D" uid="uid://bjnjh0q42pyj4" path="res://graphics/infestation/corner.png" id="17_f0dnr"]
+[ext_resource type="Texture2D" uid="uid://dctr7kcu70usj" path="res://graphics/infestation/large.png" id="17_tcule"]
+[ext_resource type="Texture2D" uid="uid://dvx4s8ogt73ti" path="res://graphics/infestation/small.png" id="18_mxk4j"]
+[ext_resource type="Texture2D" uid="uid://cy7sj1sbirj1c" path="res://graphics/infestation/medium.png" id="19_dfbl7"]
+[ext_resource type="Texture2D" uid="uid://bev1rnpkennib" path="res://graphics/infestation/line.png" id="20_a8e4c"]
+[ext_resource type="Texture2D" uid="uid://3ru4t54v6oxs" path="res://graphics/decals/brushes/brush050.png" id="21_5l0b0"]
+[ext_resource type="Texture2D" uid="uid://trvawht50i6m" path="res://graphics/infestation/spikes.png" id="21_fxgpf"]
+[ext_resource type="Texture2D" uid="uid://drnxwnle4gtfm" path="res://graphics/decals/brushes/brush053.png" id="22_dlyt6"]
+[ext_resource type="Texture2D" uid="uid://c4uwe03svtecf" path="res://graphics/infestation/small_4.png" id="22_rs858"]
+[ext_resource type="Texture2D" uid="uid://b838f3opfi7nh" path="res://graphics/infestation/small_3.png" id="24_2ds8l"]
+[ext_resource type="Texture2D" uid="uid://bjwu0k6y8il2p" path="res://graphics/infestation/small_2.png" id="33_xldo7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iwn82"]
+size = Vector2(761.5, 325)
+
+[node name="Inside" instance=ExtResource("1_n2ksk")]
+position = Vector2(0, -14)
+script = ExtResource("2_g4vj4")
+
+[node name="DirectionalLight2D" parent="." index="0"]
+visible = true
+
+[node name="Ground" parent="." index="1"]
+position = Vector2(3, 0)
+
+[node name="Base" type="Node2D" parent="Ground" index="0"]
+position = Vector2(3, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground/Base" index="0"]
+texture_repeat = 2
+texture = ExtResource("2_lc2qg")
+region_enabled = true
+region_rect = Rect2(-15639.7, -5008.63, 22318.2, 11207.7)
+region_filter_clip_enabled = true
+
+[node name="TileMap" type="TileMap" parent="Ground/Base" index="1"]
+position = Vector2(4, -5)
+tile_set = ExtResource("2_o5iav")
+format = 2
+layer_0/name = "ground"
+layer_0/tile_data = PackedInt32Array(-65543, 65538, 1, -65542, 65538, 1, -65541, 65538, 1, -5, 65538, 1, -4, 65538, 1, -3, 65538, 1, 65534, 65538, 1, 65535, 65538, 1, 0, 65538, 1, 65536, 65538, 1, 65537, 65538, 1, 65538, 65538, 1, 131075, 65538, 1, 131076, 65538, 1, -7, 65538, 1, 65529, 65538, 1, 131065, 65538, 1, 196601, 65538, 1, 262137, 65538, 1, 327673, 65538, 1, 393209, 65538, 1, -6, 65538, 1, 65530, 65538, 1, 131066, 65538, 1, 196602, 65538, 1, 262138, 65538, 1, 327674, 65538, 1, 393210, 65538, 1, 65531, 65538, 1, 131067, 65538, 1, 196603, 65538, 1, 262139, 65538, 1, 327675, 65538, 1, 393211, 65538, 1, -65540, 65538, 1, 65532, 65538, 1, 131068, 65538, 1, 196604, 65538, 1, 262140, 65538, 1, 327676, 65538, 1, 393212, 65538, 1, -65539, 65538, 1, 65533, 65538, 1, 131069, 65538, 1, 196605, 65538, 1, 262141, 65538, 1, 327677, 65538, 1, 393213, 65538, 1, -65538, 65538, 1, -2, 65538, 1, 131070, 65538, 1, 196606, 65538, 1, 262142, 65538, 1, 327678, 65538, 1, 393214, 65538, 1, -65537, 65538, 1, -1, 65538, 1, 131071, 65538, 1, 196607, 65538, 1, 262143, 65538, 1, 327679, 65538, 1, 393215, 65538, 1, -131072, 65538, 1, -65536, 65538, 1, 131072, 65538, 1, 196608, 65538, 1, 262144, 65538, 1, 327680, 65538, 1, -131071, 65538, 1, -65535, 65538, 1, 1, 65538, 1, 131073, 65538, 1, 196609, 65538, 1, 262145, 65538, 1, 327681, 65538, 1, -131070, 65538, 1, -65534, 65538, 1, 2, 65538, 1, 131074, 65538, 1, 196610, 65538, 1, 262146, 65538, 1, 327682, 65538, 1, -131069, 65538, 1, -65533, 65538, 1, 3, 65538, 1, 65539, 65538, 1, 196611, 65538, 1, 262147, 65538, 1, 327683, 65538, 1, -131068, 65538, 1, -65532, 65538, 1, 4, 65538, 1, 65540, 65538, 1, 196612, 65538, 1, 262148, 65538, 1, 327684, 65538, 1, -131067, 65538, 1, -65531, 65538, 1, 5, 65538, 1, 65541, 65538, 1, 131077, 65538, 1, 196613, 65538, 1, 262149, 65538, 1, 327685, 65538, 1, -131066, 65538, 1, -65530, 65538, 1, 6, 65538, 1, 65542, 65538, 1, 131078, 65538, 1, 196614, 65538, 1, 262150, 65538, 1, 327686, 65538, 1, -131065, 65538, 1, -65529, 65538, 1, 7, 65538, 1, 65543, 65538, 1, 131079, 65538, 1, 196615, 65538, 1, 262151, 65538, 1, 327687, 65538, 1, -131064, 65538, 1, -65528, 65538, 1, 8, 65538, 1, 65544, 65538, 1, 131080, 65538, 1, 196616, 65538, 1, 262152, 65538, 1, 327688, 65538, 1, -131063, 65538, 1, -65527, 65538, 1, 9, 65538, 1, 65545, 65538, 1, 131081, 65538, 1, 196617, 65538, 1, 262153, 65538, 1, 327689, 65538, 1, -458759, 65538, 1, -393223, 65538, 1, -327687, 65538, 1, -262151, 65538, 1, -196615, 65538, 1, -131079, 65538, 1, -458758, 65538, 1, -393222, 65538, 1, -327686, 65538, 1, -262150, 65538, 1, -196614, 65538, 1, -131078, 65538, 1, -458757, 65538, 1, -393221, 65538, 1, -327685, 65538, 1, -262149, 65538, 1, -196613, 65538, 1, -131077, 65538, 1, -458756, 65538, 1, -393220, 65538, 1, -327684, 65538, 1, -262148, 65538, 1, -196612, 65538, 1, -131076, 65538, 1, -458755, 65538, 1, -393219, 65538, 1, -327683, 65538, 1, -262147, 65538, 1, -196611, 65538, 1, -131075, 65538, 1, -458754, 65538, 1, -393218, 65538, 1, -327682, 65538, 1, -262146, 65538, 1, -196610, 65538, 1, -131074, 65538, 1, -458753, 65538, 1, -393217, 65538, 1, -327681, 65538, 1, -262145, 65538, 1, -196609, 65538, 1, -131073, 65538, 1, -524288, 65538, 1, -458752, 65538, 1, -393216, 65538, 1, -327680, 65538, 1, -262144, 65538, 1, -196608, 65538, 1, -524287, 65538, 1, -458751, 65538, 1, -393215, 65538, 1, -327679, 65538, 1, -262143, 65538, 1, -196607, 65538, 1, -524286, 65538, 1, -458750, 65538, 1, -393214, 65538, 1, -327678, 65538, 1, -262142, 65538, 1, -196606, 65538, 1, -524285, 65538, 1, -458749, 65538, 1, -393213, 65538, 1, -327677, 65538, 1, -262141, 65538, 1, -196605, 65538, 1, -524284, 65538, 1, -458748, 65538, 1, -393212, 65538, 1, -327676, 65538, 1, -262140, 65538, 1, -196604, 65538, 1, -524283, 65538, 1, -458747, 65538, 1, -393211, 65538, 1, -327675, 65538, 1, -262139, 65538, 1, -196603, 65538, 1, -524282, 65538, 1, -458746, 65538, 1, -393210, 65538, 1, -327674, 65538, 1, -262138, 65538, 1, -196602, 65538, 1, -524281, 65538, 1, -458745, 65538, 1, -393209, 65538, 1, -327673, 65538, 1, -262137, 65538, 1, -196601, 65538, 1, -524280, 65538, 1, -458744, 65538, 1, -393208, 65538, 1, -327672, 65538, 1, -262136, 65538, 1, -196600, 65538, 1, -524279, 65538, 1, -458743, 65538, 1, -393207, 65538, 1, -327671, 65538, 1, -262135, 65538, 1, -196599, 65538, 1, -196623, 65538, 1, -131087, 65538, 1, -65551, 65538, 1, -15, 65538, 1, 65521, 65538, 1, 131057, 65538, 1, 196593, 65538, 1, 262129, 65538, 1, 327665, 65538, 1, 393201, 65538, 1, -196622, 65538, 1, -131086, 65538, 1, -65550, 65538, 1, -14, 65538, 1, 65522, 65538, 1, 131058, 65538, 1, 196594, 65538, 1, 262130, 65538, 1, 327666, 65538, 1, 393202, 65538, 1, -196621, 65538, 1, -131085, 65538, 1, -65549, 65538, 1, -13, 65538, 1, 65523, 65538, 1, 131059, 65538, 1, 196595, 65538, 1, 262131, 65538, 1, 327667, 65538, 1, 393203, 65538, 1, -196620, 65538, 1, -131084, 65538, 1, -65548, 65538, 1, -12, 65538, 1, 65524, 65538, 1, 131060, 65538, 1, 196596, 65538, 1, 262132, 65538, 1, 327668, 65538, 1, 393204, 65538, 1, -196619, 65538, 1, -131083, 65538, 1, -65547, 65538, 1, -11, 65538, 1, 65525, 65538, 1, 131061, 65538, 1, 196597, 65538, 1, 262133, 65538, 1, 327669, 65538, 1, 393205, 65538, 1, -196618, 65538, 1, -131082, 65538, 1, -65546, 65538, 1, -10, 65538, 1, 65526, 65538, 1, 131062, 65538, 1, 196598, 65538, 1, 262134, 65538, 1, 327670, 65538, 1, 393206, 65538, 1, -196617, 65538, 1, -131081, 65538, 1, -65545, 65538, 1, -9, 65538, 1, 65527, 65538, 1, 131063, 65538, 1, 196599, 65538, 1, 262135, 65538, 1, 327671, 65538, 1, 393207, 65538, 1, -196616, 65538, 1, -131080, 65538, 1, -65544, 65538, 1, -8, 65538, 1, 65528, 65538, 1, 131064, 65538, 1, 196600, 65538, 1, 262136, 65538, 1, 327672, 65538, 1, 393208, 65538, 1, -524278, 65538, 1, -458742, 65538, 1, -393206, 65538, 1, -327670, 65538, 1, -262134, 65538, 1, -196598, 65538, 1, -131062, 65538, 1, -65526, 65538, 1, 10, 65538, 1, 65546, 65538, 1, 131082, 65538, 1, 196618, 65538, 1, 262154, 65538, 1, 327690, 65538, 1, -524277, 65538, 1, -458741, 65538, 1, -393205, 65538, 1, -327669, 65538, 1, -262133, 65538, 1, -196597, 65538, 1, -131061, 65538, 1, -65525, 65538, 1, 11, 65538, 1, 65547, 65538, 1, 131083, 65538, 1, 196619, 65538, 1, 262155, 65538, 1, 327691, 65538, 1, -524276, 65538, 1, -458740, 65538, 1, -393204, 65538, 1, -327668, 65538, 1, -262132, 65538, 1, -196596, 65538, 1, -131060, 65538, 1, -65524, 65538, 1, 12, 65538, 1, 65548, 65538, 1, 131084, 65538, 1, 196620, 65538, 1, 262156, 65538, 1, 327692, 65538, 1, 393228, 65538, 2, 393227, 65538, 2, 393226, 65538, 2, 393225, 65538, 2, 393224, 65538, 2, 393223, 65538, 2, 393222, 65538, 2, 393221, 65538, 2, 393220, 65538, 2, 393219, 65538, 2, 393218, 65538, 2, 393217, 2, 4, 393216, 65538, 1, 458751, 65538, 1, 458750, 65538, 4, 458749, 65538, 2, 458748, 65538, 2, 458747, 65538, 2, 458746, 65538, 2, 458745, 65538, 2, 458744, 65538, 2, 458743, 65538, 2, 458742, 65538, 2, 458741, 65538, 2, 458740, 65538, 2, 458739, 65538, 2, 458738, 65538, 2, 458737, 65538, 2, 393200, 2, 1, 327664, 2, 1, 262128, 2, 1, 196592, 2, 1, 131056, 2, 1, 65520, 2, 1, -16, 2, 1, -65552, 2, 1, -131088, 2, 1, -196624, 2, 1, -524295, 65538, 0, -524292, 65538, 0, -524291, 65538, 0, -524290, 65538, 0, -524289, 65538, 0, -589824, 65538, 0, -589823, 65538, 0, -589822, 65538, 0, -589821, 65538, 0, -589820, 65538, 0, -589819, 65538, 0, -589818, 65538, 0, -589817, 65538, 0, -589816, 65538, 0, -589815, 65538, 0, -589814, 65538, 0, -589813, 65538, 0, -589812, 65538, 0, -524275, 131074, 1, -458739, 131074, 1, -393203, 131074, 1, -327667, 131074, 1, -262131, 131074, 1, -196595, 131074, 1, -131059, 131074, 1, -65523, 131074, 1, 13, 131074, 1, 65549, 131074, 1, 131085, 131074, 1, 196621, 131074, 1, 262157, 131074, 1, 327693, 131074, 1, 393229, 131074, 2, 458736, 2, 2, -524304, 2, 0, -589811, 131074, 0, 524286, 2, 1, 458753, 131074, 1, 458752, 65538, 1, 524287, 65538, 1, 524288, 131074, 4, 589823, 131074, 4, 524289, 131074, 2, 589822, 2, 2, -262152, 65538, 5, -262153, 65538, 0, -262154, 65538, 0, -262155, 65538, 0, -262156, 65538, 0, -262157, 65538, 0, -262159, 65538, 0, -262158, 65538, 0, -262160, 2, 0, -524296, 2, 0, -458760, 2, 1, -393224, 2, 1, -327688, 2, 1, -524293, 131074, 3, -524294, 65538, 0)
+layer_1/name = "walls"
+layer_1/enabled = true
+layer_1/modulate = Color(1, 1, 1, 1)
+layer_1/y_sort_enabled = false
+layer_1/y_sort_origin = 0
+layer_1/z_index = 0
+layer_1/tile_data = PackedInt32Array(393218, 262146, 2, 393219, 262146, 2, 393220, 262146, 2, 393221, 262146, 2, 393222, 262146, 2, 393223, 262146, 2, 393224, 262146, 2, 393226, 262146, 2, 393227, 262146, 2, 393228, 262146, 2, 393225, 262146, 2, 458749, 262146, 2, 458748, 262146, 2, 458747, 262146, 2, 458746, 262146, 2, 458745, 262146, 2, 458744, 262146, 2, 458743, 262146, 2, 458742, 262146, 2, 458741, 262146, 2, 458740, 262146, 2, 458739, 262146, 2, 458738, 262146, 2, 458737, 262146, 2, 458736, 196610, 2, 393229, 327682, 2, 327693, 327682, 1, 262157, 327682, 1, 196621, 327682, 1, 131085, 327682, 1, 65549, 327682, 1, 13, 327682, 1, -65523, 327682, 1, -131059, 327682, 1, -196595, 327682, 1, -262131, 327682, 1, -327667, 327682, 1, -393203, 327682, 1, -458739, 327682, 1, -524275, 327682, 1, -589811, 327682, 0, -589812, 262146, 0, -589813, 262146, 0, -589814, 262146, 0, -589815, 262146, 0, -589816, 262146, 0, -589817, 262146, 0, -589818, 262146, 0, -589819, 262146, 0, -589820, 262146, 0, -589821, 262146, 0, -589822, 262146, 0, -589823, 262146, 0, -589824, 262146, 0, -524289, 262146, 0, -524290, 262146, 0, -524291, 262146, 0, -524292, 262146, 0, -524295, 262146, 0, -262160, 196610, 0, -196624, 196610, 1, -131088, 196610, 1, -65552, 196610, 1, -16, 196610, 1, 65520, 196610, 1, 131056, 196610, 1, 196592, 196610, 1, 262128, 196610, 1, 327664, 196610, 1, 393200, 196610, 1, 458750, 327682, 0, 393217, 196610, 0, 458753, 327682, 1, 524286, 196610, 1, 589822, 196610, 2, 524289, 327682, 2, 589823, 393218, 3, 524288, 393218, 4, -524296, 196610, 0, -262159, 262146, 2, -262158, 262146, 2, -262157, 262146, 2, -262156, 262146, 2, -262155, 262146, 2, -262154, 262146, 2, -262153, 262146, 2, -262152, 327682, 2, -458760, 327682, 1, -393224, 327682, 1, -327688, 327682, 1, -524293, 196610, 0, -524294, 327682, 0)
+layer_2/name = "inside Walls"
+layer_2/enabled = true
+layer_2/modulate = Color(1, 1, 1, 1)
+layer_2/y_sort_enabled = false
+layer_2/y_sort_origin = 0
+layer_2/z_index = 0
+layer_2/tile_data = PackedInt32Array(589823, 2, 6, 524288, 2, 6, 458750, 131074, 7, 458751, 65538, 8, 327679, 65538, 6, 262143, 65538, 6, 327681, 65538, 6, 393217, 131074, 8, 196609, 65538, 6, 131073, 2, 7, 1, 65538, 6, -65535, 65538, 6, -131071, 65538, 6, -196607, 131074, 8, -262143, 65538, 6, -327679, 65538, 6, -393215, 131074, 8, -458751, 327682, 8, -524287, 65538, 6, -589823, 131074, 7, 196607, 65538, 6, 131071, 65538, 6, 65535, 65538, 6, -131073, 65538, 6, -196609, 196610, 7, -262145, 65538, 6, -327681, 65538, 6, -393217, 327682, 6, -458753, 65538, 6, -1, 65538, 6, -65537, 65538, 6, -524289, 131074, 7, 65537, 2, 8, 65539, 2, 6, 65540, 196610, 8, 131076, 131074, 7, -196606, 2, 6, -196605, 2, 6, -196604, 131074, 7, -196603, 2, 6, -196602, 2, 6, -196601, 131074, 7, -196600, 2, 6, -196599, 2, 6, -196598, 131074, 7, -196597, 262146, 7, -196596, 2, 6, -196595, 196610, 7, 65542, 2, 6, 65543, 196610, 8, 65545, 2, 6, 65546, 196610, 8, 65548, 2, 6, 131079, 131074, 7, 131082, 131074, 7, 65549, 196610, 7, 131085, 196610, 7, 4, 65538, 6, -65532, 65538, 6, -131068, 65538, 6, -131065, 65538, 6, -65529, 65538, 6, 7, 65538, 6, -131062, 65538, 6, -65526, 65538, 6, 10, 65538, 6, 196618, 65538, 6, 262154, 65538, 6, 327690, 65538, 6, 196615, 65538, 6, 262151, 65538, 6, 327687, 65538, 6, 196612, 65538, 6, 262148, 65538, 6, 327684, 65538, 6, 393220, 196610, 8, 393223, 196610, 8, 393226, 196610, 8, -196610, 2, 6, -196611, 2, 6, -196612, 2, 6, -196613, 2, 6, -196614, 2, 6, -196615, 2, 6, -196616, 2, 6, -196617, 131074, 8, -262153, 131074, 7, -131081, 65538, 6, -65545, 65538, 6, -9, 65538, 6, 65527, 65538, 6, 131063, 65538, 6, 196599, 196610, 7, 196598, 2, 6, 196597, 2, 6, 196595, 2, 6, 196594, 2, 6, 196593, 2, 6, 196592, 131074, 8, -393214, 2, 6, -393213, 2, 6, -393212, 2, 6, -393211, 2, 6, -393210, 2, 6, -393209, 2, 6, -393208, 2, 6, -393204, 2, 7, -393203, 196610, 7, -327668, 65538, 8, -327669, 2, 6, -327670, 2, 6, -262158, 131074, 7, -262156, 131074, 7, -262154, 131074, 7, -131082, 65538, 8, -131084, 196610, 8, -131086, 196610, 8, -131088, 131074, 8, -131085, 262146, 7, -131083, 262146, 7, -131087, 262146, 7, -196618, 65538, 6, -196620, 65538, 6, -196622, 65538, 6, 458743, 196610, 8, 262135, 65538, 6, 393207, 65538, 6, 262145, 65538, 6, 131074, 2, 6, 131077, 2, 6, 131080, 2, 6, 131083, 2, 6, -393207, 327682, 6, -327671, 2, 8)
+
+[node name="Brush054" type="Sprite2D" parent="Ground/Decals" index="0"]
+modulate = Color(0.305882, 0, 0, 0.576471)
+position = Vector2(-3738, 1642)
+rotation = -1.67677
+texture = ExtResource("21_5l0b0")
+
+[node name="Brush055" type="Sprite2D" parent="Ground/Decals" index="1"]
+modulate = Color(0.305882, 0, 0, 0.576471)
+position = Vector2(-3904, 1614)
+texture = ExtResource("21_5l0b0")
+
+[node name="Brush059" type="Sprite2D" parent="Ground/Decals" index="2"]
+modulate = Color(0.305882, 0, 0, 0.576471)
+position = Vector2(-4383, 1153)
+texture = ExtResource("9_4kg02")
+
+[node name="Brush060" type="Sprite2D" parent="Ground/Decals" index="3"]
+modulate = Color(0.305882, 0, 0, 0.576471)
+position = Vector2(-4234, 1416)
+texture = ExtResource("21_5l0b0")
+
+[node name="Brush061" type="Sprite2D" parent="Ground/Decals" index="4"]
+modulate = Color(0.305882, 0, 0, 0.576471)
+position = Vector2(-4068, 1564)
+texture = ExtResource("22_dlyt6")
+
+[node name="Brush062" type="Sprite2D" parent="Ground/Decals" index="5"]
+modulate = Color(0.188235, 0.505882, 0, 1)
+position = Vector2(-866, -931)
+texture = ExtResource("8_pgwy1")
+
+[node name="Brush063" type="Sprite2D" parent="Ground/Decals" index="6"]
+modulate = Color(0.188235, 0.505882, 0, 1)
+position = Vector2(-2104, 552)
+texture = ExtResource("6_md71r")
+
+[node name="Brush064" type="Sprite2D" parent="Ground/Decals" index="7"]
+modulate = Color(0.188235, 0.505882, 0, 1)
+position = Vector2(-2986, -1071)
+texture = ExtResource("10_05x4y")
+
+[node name="Brush065" type="Sprite2D" parent="Ground/Decals" index="8"]
+modulate = Color(0.188235, 0.505882, 0, 1)
+position = Vector2(-2995, 2208)
+texture = ExtResource("6_md71r")
+
+[node name="Brush066" type="Sprite2D" parent="Ground/Decals" index="9"]
+modulate = Color(0.188235, 0.505882, 0, 1)
+position = Vector2(-3752, 318)
+texture = ExtResource("11_ovmiy")
+
+[node name="Blood" type="Sprite2D" parent="Ground/Decals" index="10"]
+position = Vector2(460, 773)
+rotation = 1.33619
+texture = ExtResource("5_j16ud")
+
+[node name="Blood2" type="Sprite2D" parent="Ground/Decals" index="11"]
+position = Vector2(963, 1957)
+texture = ExtResource("5_j16ud")
+
+[node name="Brush056" type="Sprite2D" parent="Ground/Decals" index="12"]
+modulate = Color(0.305882, 0, 0, 0.576471)
+position = Vector2(-373, 2149)
+rotation = 1.07637
+texture = ExtResource("6_md71r")
+
+[node name="Brush044" type="Sprite2D" parent="Ground/Decals" index="13"]
+modulate = Color(0.211765, 0, 0, 0.576471)
+position = Vector2(-2516, -396)
+texture = ExtResource("7_4kday")
+
+[node name="Brush045" type="Sprite2D" parent="Ground/Decals" index="14"]
+modulate = Color(0.415686, 0, 0, 0.576471)
+position = Vector2(-1009, 842)
+texture = ExtResource("8_tvans")
+
+[node name="Brush048" type="Sprite2D" parent="Ground/Decals" index="15"]
+modulate = Color(0.305882, 0, 0, 0.576471)
+position = Vector2(-562, 1319)
+texture = ExtResource("9_4kg02")
+
+[node name="Brush049" type="Sprite2D" parent="Ground/Decals" index="16"]
+modulate = Color(0.305882, 0, 0, 0.576471)
+position = Vector2(-559, 1703)
+texture = ExtResource("10_4iiuf")
+
+[node name="Brush047" type="Sprite2D" parent="Ground/Decals" index="17"]
+modulate = Color(0.305882, 0, 0, 0.576471)
+position = Vector2(-2577, 876)
+texture = ExtResource("11_b2im0")
+
+[node name="Brush057" type="Sprite2D" parent="Ground/Decals" index="18"]
+modulate = Color(0.305882, 0, 0, 0.576471)
+position = Vector2(-1832, 1214)
+texture = ExtResource("6_md71r")
+
+[node name="Brush046" type="Sprite2D" parent="Ground/Decals" index="19"]
+modulate = Color(0.184314, 0, 0, 0.576471)
+position = Vector2(-2361, 1595)
+texture = ExtResource("8_tvans")
+
+[node name="Brush050" type="Sprite2D" parent="Ground/Decals" index="20"]
+modulate = Color(0.305882, 0, 0, 0.576471)
+position = Vector2(-5039, 38)
+texture = ExtResource("11_b2im0")
+
+[node name="Brush051" type="Sprite2D" parent="Ground/Decals" index="21"]
+modulate = Color(0.305882, 0, 0, 0.576471)
+position = Vector2(-4917, -812)
+texture = ExtResource("9_4kg02")
+
+[node name="Brush058" type="Sprite2D" parent="Ground/Decals" index="22"]
+modulate = Color(0.305882, 0, 0, 0.576471)
+position = Vector2(-5698, -817)
+rotation = 2.67913
+texture = ExtResource("6_md71r")
+
+[node name="Brush052" type="Sprite2D" parent="Ground/Decals" index="23"]
+modulate = Color(0.305882, 0, 0, 0.576471)
+position = Vector2(-5372, -345)
+texture = ExtResource("8_tvans")
+
+[node name="Brush053" type="Sprite2D" parent="Ground/Decals" index="24"]
+modulate = Color(0.305882, 0, 0, 0.576471)
+position = Vector2(-4879, -325)
+texture = ExtResource("10_4iiuf")
+
+[node name="Brush067" type="Sprite2D" parent="Ground/Decals" index="25"]
+modulate = Color(0.132813, 0.1875, 0.078125, 1)
+position = Vector2(-980, -2504)
+texture = ExtResource("7_4kday")
+
+[node name="Brush068" type="Sprite2D" parent="Ground/Decals" index="26"]
+modulate = Color(0.132813, 0.1875, 0.078125, 1)
+position = Vector2(-2420, -2742)
+texture = ExtResource("8_tvans")
+
+[node name="Corner" type="Sprite2D" parent="Ground/InfestationBG" index="0"]
+position = Vector2(-3844, -1601)
+texture = ExtResource("17_f0dnr")
+
+[node name="Small24" type="Sprite2D" parent="Ground/InfestationBG" index="1"]
+position = Vector2(-4484, -1712)
+texture = ExtResource("33_xldo7")
+
+[node name="Small25" type="Sprite2D" parent="Ground/InfestationBG" index="2"]
+position = Vector2(-4495, -1646)
+texture = ExtResource("18_mxk4j")
+
+[node name="Corner2" type="Sprite2D" parent="Ground/InfestationBG" index="3"]
+position = Vector2(-685, -3097)
+texture = ExtResource("17_f0dnr")
+
+[node name="Spikes38" type="Sprite2D" parent="Ground/InfestationBG" index="4"]
+position = Vector2(-2825, -2769)
+texture = ExtResource("21_fxgpf")
+
+[node name="Large2" type="Sprite2D" parent="Ground/InfestationBG" index="5"]
+position = Vector2(-3539, -1583)
+texture = ExtResource("17_tcule")
+
+[node name="Large3" type="Sprite2D" parent="Ground/InfestationBG" index="6"]
+position = Vector2(-3405, -1210)
+texture = ExtResource("17_tcule")
+
+[node name="Large9" type="Sprite2D" parent="Ground/InfestationBG" index="7"]
+position = Vector2(-3600, -1046)
+texture = ExtResource("17_tcule")
+
+[node name="Medium4" type="Sprite2D" parent="Ground/InfestationBG" index="8"]
+position = Vector2(-3381, -1107)
+texture = ExtResource("19_dfbl7")
+
+[node name="Large10" type="Sprite2D" parent="Ground/InfestationBG" index="9"]
+position = Vector2(-3580, -1213)
+texture = ExtResource("17_tcule")
+
+[node name="Small2" type="Sprite2D" parent="Ground/InfestationBG" index="10"]
+position = Vector2(-3388, -1042)
+texture = ExtResource("18_mxk4j")
+
+[node name="Small5" type="Sprite2D" parent="Ground/InfestationBG" index="11"]
+position = Vector2(-3660, -1142)
+texture = ExtResource("33_xldo7")
+
+[node name="Spikes" type="Sprite2D" parent="Ground/InfestationBG" index="12"]
+position = Vector2(-3381, -1001)
+texture = ExtResource("21_fxgpf")
+
+[node name="Large11" type="Sprite2D" parent="Ground/InfestationBG" index="13"]
+position = Vector2(-3431, -1407)
+texture = ExtResource("17_tcule")
+
+[node name="Spikes16" type="Sprite2D" parent="Ground/InfestationBG" index="14"]
+position = Vector2(-3703, -978)
+texture = ExtResource("21_fxgpf")
+
+[node name="Spikes17" type="Sprite2D" parent="Ground/InfestationBG" index="15"]
+position = Vector2(-4044, -983)
+rotation = 2.37011
+texture = ExtResource("21_fxgpf")
+
+[node name="Spikes18" type="Sprite2D" parent="Ground/InfestationBG" index="16"]
+position = Vector2(-4838, -974)
+rotation = 2.39795
+texture = ExtResource("21_fxgpf")
+
+[node name="Spikes19" type="Sprite2D" parent="Ground/InfestationBG" index="17"]
+position = Vector2(-4287, -971)
+rotation = -0.568592
+texture = ExtResource("21_fxgpf")
+
+[node name="Spikes20" type="Sprite2D" parent="Ground/InfestationBG" index="18"]
+position = Vector2(-4838, -974)
+rotation = 2.39795
+texture = ExtResource("21_fxgpf")
+
+[node name="Spikes21" type="Sprite2D" parent="Ground/InfestationBG" index="19"]
+position = Vector2(-4287, -971)
+rotation = -0.568592
+texture = ExtResource("21_fxgpf")
+
+[node name="Line" type="Sprite2D" parent="Ground/InfestationBG" index="20"]
+position = Vector2(-3696, -1145)
+texture = ExtResource("20_a8e4c")
+
+[node name="Line24" type="Sprite2D" parent="Ground/InfestationBG" index="21"]
+position = Vector2(-3873, -986)
+rotation = 1.56331
+texture = ExtResource("20_a8e4c")
+
+[node name="Line25" type="Sprite2D" parent="Ground/InfestationBG" index="22"]
+position = Vector2(-4477, -1143)
+texture = ExtResource("20_a8e4c")
+
+[node name="Line26" type="Sprite2D" parent="Ground/InfestationBG" index="23"]
+position = Vector2(-4477, -1480)
+texture = ExtResource("20_a8e4c")
+
+[node name="Line27" type="Sprite2D" parent="Ground/InfestationBG" index="24"]
+position = Vector2(-4459, -970)
+rotation = 1.58292
+texture = ExtResource("20_a8e4c")
+
+[node name="Line28" type="Sprite2D" parent="Ground/InfestationBG" index="25"]
+position = Vector2(-4676, -976)
+rotation = 1.58292
+texture = ExtResource("20_a8e4c")
+
+[node name="Spikes22" type="Sprite2D" parent="Ground/InfestationBG" index="26"]
+position = Vector2(-4488, -973)
+texture = ExtResource("21_fxgpf")
+
+[node name="Line29" type="Sprite2D" parent="Ground/InfestationBG" index="27"]
+position = Vector2(-3305, -1129)
+texture = ExtResource("20_a8e4c")
+
+[node name="Line30" type="Sprite2D" parent="Ground/InfestationBG" index="28"]
+position = Vector2(-3310, -787)
+texture = ExtResource("20_a8e4c")
+
+[node name="Line31" type="Sprite2D" parent="Ground/InfestationBG" index="29"]
+position = Vector2(-3312, -431)
+texture = ExtResource("20_a8e4c")
+
+[node name="Line32" type="Sprite2D" parent="Ground/InfestationBG" index="30"]
+position = Vector2(-3307, -1470)
+texture = ExtResource("20_a8e4c")
+
+[node name="Line33" type="Sprite2D" parent="Ground/InfestationBG" index="31"]
+position = Vector2(-3698, -1498)
+texture = ExtResource("20_a8e4c")
+
+[node name="Line34" type="Sprite2D" parent="Ground/InfestationBG" index="32"]
+position = Vector2(-3570, -1093)
+rotation = 0.868977
+texture = ExtResource("20_a8e4c")
+
+[node name="Line35" type="Sprite2D" parent="Ground/InfestationBG" index="33"]
+position = Vector2(-3409, -1257)
+rotation = -0.110356
+texture = ExtResource("20_a8e4c")
+
+[node name="Line36" type="Sprite2D" parent="Ground/InfestationBG" index="34"]
+position = Vector2(-3559, -1541)
+rotation = -0.843938
+texture = ExtResource("20_a8e4c")
+
+[node name="Line37" type="Sprite2D" parent="Ground/InfestationBG" index="35"]
+position = Vector2(-3578, -879)
+rotation = -0.843938
+texture = ExtResource("20_a8e4c")
+
+[node name="Line38" type="Sprite2D" parent="Ground/InfestationBG" index="36"]
+position = Vector2(-3383, -621)
+rotation = -0.536466
+texture = ExtResource("20_a8e4c")
+
+[node name="Line39" type="Sprite2D" parent="Ground/InfestationBG" index="37"]
+position = Vector2(-3390, -909)
+rotation = 0.407828
+texture = ExtResource("20_a8e4c")
+
+[node name="Line40" type="Sprite2D" parent="Ground/InfestationBG" index="38"]
+position = Vector2(-3447, -923)
+rotation = -0.843938
+texture = ExtResource("20_a8e4c")
+
+[node name="Line41" type="Sprite2D" parent="Ground/InfestationBG" index="39"]
+position = Vector2(-3572, -1242)
+rotation = -2.43523
+texture = ExtResource("20_a8e4c")
+
+[node name="Line42" type="Sprite2D" parent="Ground/InfestationBG" index="40"]
+position = Vector2(-3529, -996)
+rotation = 1.59241
+texture = ExtResource("20_a8e4c")
+
+[node name="Spikes23" type="Sprite2D" parent="Ground/InfestationBG" index="41"]
+position = Vector2(-3315, -805)
+texture = ExtResource("21_fxgpf")
+
+[node name="Spikes24" type="Sprite2D" parent="Ground/InfestationBG" index="42"]
+position = Vector2(-3464, -775)
+texture = ExtResource("21_fxgpf")
+
+[node name="Line43" type="Sprite2D" parent="Ground/InfestationBG" index="43"]
+position = Vector2(-4311, -1741)
+rotation = 1.5564
+texture = ExtResource("20_a8e4c")
+
+[node name="Line44" type="Sprite2D" parent="Ground/InfestationBG" index="44"]
+position = Vector2(-3983, -1752)
+rotation = 1.5564
+texture = ExtResource("20_a8e4c")
+
+[node name="Line45" type="Sprite2D" parent="Ground/InfestationBG" index="45"]
+position = Vector2(-3705, -1666)
+rotation = 2.19159
+texture = ExtResource("20_a8e4c")
+
+[node name="Line46" type="Sprite2D" parent="Ground/InfestationBG" index="46"]
+position = Vector2(-4488, -1580)
+rotation = -2.93328
+texture = ExtResource("20_a8e4c")
+
+[node name="Spikes25" type="Sprite2D" parent="Ground/InfestationBG" index="47"]
+position = Vector2(-4520, -1421)
+texture = ExtResource("21_fxgpf")
+
+[node name="Large6" type="Sprite2D" parent="Ground/InfestationBG" index="48"]
+position = Vector2(-294, -2888)
+texture = ExtResource("17_tcule")
+
+[node name="Large4" type="Sprite2D" parent="Ground/InfestationBG" index="49"]
+position = Vector2(-1033, -2893)
+texture = ExtResource("17_tcule")
+
+[node name="Large" type="Sprite2D" parent="Ground/InfestationBG" index="50"]
+position = Vector2(-1754, -3081)
+texture = ExtResource("17_tcule")
+
+[node name="Small" type="Sprite2D" parent="Ground/InfestationBG" index="51"]
+position = Vector2(-1791, -2990)
+texture = ExtResource("18_mxk4j")
+
+[node name="Medium" type="Sprite2D" parent="Ground/InfestationBG" index="52"]
+position = Vector2(-1837, -3049)
+texture = ExtResource("19_dfbl7")
+
+[node name="Medium2" type="Sprite2D" parent="Ground/InfestationBG" index="53"]
+position = Vector2(-1918, -3112)
+texture = ExtResource("19_dfbl7")
+
+[node name="Line2" type="Sprite2D" parent="Ground/InfestationBG" index="54"]
+position = Vector2(-1924, -3185)
+rotation = 2.00788
+texture = ExtResource("20_a8e4c")
+
+[node name="Medium3" type="Sprite2D" parent="Ground/InfestationBG" index="55"]
+position = Vector2(-1946, -3042)
+texture = ExtResource("19_dfbl7")
+
+[node name="Spikes2" type="Sprite2D" parent="Ground/InfestationBG" index="56"]
+position = Vector2(-529, -2914)
+texture = ExtResource("21_fxgpf")
+
+[node name="Line3" type="Sprite2D" parent="Ground/InfestationBG" index="57"]
+position = Vector2(-1623, -2949)
+rotation = -1.01619
+texture = ExtResource("20_a8e4c")
+
+[node name="Line4" type="Sprite2D" parent="Ground/InfestationBG" index="58"]
+position = Vector2(-1341, -2833)
+rotation = -1.424
+texture = ExtResource("20_a8e4c")
+
+[node name="Line5" type="Sprite2D" parent="Ground/InfestationBG" index="59"]
+position = Vector2(-991, -2833)
+rotation = -1.75662
+texture = ExtResource("20_a8e4c")
+
+[node name="Line6" type="Sprite2D" parent="Ground/InfestationBG" index="60"]
+position = Vector2(-671, -2895)
+rotation = -1.75662
+texture = ExtResource("20_a8e4c")
+
+[node name="Line7" type="Sprite2D" parent="Ground/InfestationBG" index="61"]
+position = Vector2(-383, -2942)
+rotation = -1.75662
+texture = ExtResource("20_a8e4c")
+
+[node name="Line8" type="Sprite2D" parent="Ground/InfestationBG" index="62"]
+position = Vector2(-181, -3081)
+rotation = 3.09844
+texture = ExtResource("20_a8e4c")
+
+[node name="Line9" type="Sprite2D" parent="Ground/InfestationBG" index="63"]
+position = Vector2(-190, -2899)
+rotation = 3.09844
+texture = ExtResource("20_a8e4c")
+
+[node name="Line10" type="Sprite2D" parent="Ground/InfestationBG" index="64"]
+position = Vector2(-380, -3106)
+rotation = 2.60785
+texture = ExtResource("20_a8e4c")
+
+[node name="Line11" type="Sprite2D" parent="Ground/InfestationBG" index="65"]
+position = Vector2(-355, -2844)
+rotation = 1.83702
+texture = ExtResource("20_a8e4c")
+
+[node name="Large8" type="Sprite2D" parent="Ground/InfestationBG" index="66"]
+position = Vector2(-2322, -3216)
+texture = ExtResource("17_tcule")
+
+[node name="Line12" type="Sprite2D" parent="Ground/InfestationBG" index="67"]
+position = Vector2(-1084.2, -3082.03)
+rotation = 2.95426
+scale = Vector2(1, 0.994154)
+texture = ExtResource("20_a8e4c")
+
+[node name="Large5" type="Sprite2D" parent="Ground/InfestationBG" index="68"]
+position = Vector2(-2667, -3095)
+texture = ExtResource("17_tcule")
+
+[node name="Medium5" type="Sprite2D" parent="Ground/InfestationBG" index="69"]
+position = Vector2(-2393, -2982)
+texture = ExtResource("19_dfbl7")
+
+[node name="Small3" type="Sprite2D" parent="Ground/InfestationBG" index="70"]
+position = Vector2(-2737, -2660)
+texture = ExtResource("18_mxk4j")
+
+[node name="Line13" type="Sprite2D" parent="Ground/InfestationBG" index="71"]
+position = Vector2(-347, -2889)
+rotation = 1.72595
+texture = ExtResource("20_a8e4c")
+
+[node name="Line14" type="Sprite2D" parent="Ground/InfestationBG" index="72"]
+position = Vector2(-2728, -2649)
+rotation = 0.597044
+texture = ExtResource("20_a8e4c")
+
+[node name="Line15" type="Sprite2D" parent="Ground/InfestationBG" index="73"]
+position = Vector2(-2325, -3075)
+rotation = 0.597044
+texture = ExtResource("20_a8e4c")
+
+[node name="Large7" type="Sprite2D" parent="Ground/InfestationBG" index="74"]
+position = Vector2(-2544, -2878)
+texture = ExtResource("17_tcule")
+
+[node name="Line16" type="Sprite2D" parent="Ground/InfestationBG" index="75"]
+position = Vector2(-2501, -2882)
+rotation = 1.0347
+texture = ExtResource("20_a8e4c")
+
+[node name="Line17" type="Sprite2D" parent="Ground/InfestationBG" index="76"]
+position = Vector2(-2628, -3025)
+rotation = -0.672681
+texture = ExtResource("20_a8e4c")
+
+[node name="Line18" type="Sprite2D" parent="Ground/InfestationBG" index="77"]
+position = Vector2(-2504, -3189)
+rotation = -2.05286
+texture = ExtResource("20_a8e4c")
+
+[node name="Line19" type="Sprite2D" parent="Ground/InfestationBG" index="78"]
+position = Vector2(-2759, -2936)
+rotation = 0.369453
+texture = ExtResource("20_a8e4c")
+
+[node name="Line20" type="Sprite2D" parent="Ground/InfestationBG" index="79"]
+position = Vector2(-2765, -3038)
+rotation = 2.86562
+texture = ExtResource("20_a8e4c")
+
+[node name="Line21" type="Sprite2D" parent="Ground/InfestationBG" index="80"]
+position = Vector2(-2742, -2721)
+rotation = -3.03092
+texture = ExtResource("20_a8e4c")
+
+[node name="Spikes3" type="Sprite2D" parent="Ground/InfestationBG" index="81"]
+position = Vector2(-1509, -2855)
+texture = ExtResource("21_fxgpf")
+
+[node name="Spikes4" type="Sprite2D" parent="Ground/InfestationBG" index="82"]
+position = Vector2(-1145, -2800)
+texture = ExtResource("21_fxgpf")
+
+[node name="Spikes5" type="Sprite2D" parent="Ground/InfestationBG" index="83"]
+position = Vector2(-531, -2886)
+texture = ExtResource("21_fxgpf")
+
+[node name="Spikes6" type="Sprite2D" parent="Ground/InfestationBG" index="84"]
+position = Vector2(-258, -2940)
+texture = ExtResource("21_fxgpf")
+
+[node name="Spikes7" type="Sprite2D" parent="Ground/InfestationBG" index="85"]
+position = Vector2(-360, -2926)
+texture = ExtResource("21_fxgpf")
+
+[node name="Medium7" type="Sprite2D" parent="Ground/InfestationBG" index="86"]
+position = Vector2(-223, -2848)
+texture = ExtResource("19_dfbl7")
+
+[node name="Small4" type="Sprite2D" parent="Ground/InfestationBG" index="87"]
+position = Vector2(-214, -2915)
+texture = ExtResource("22_rs858")
+
+[node name="Medium8" type="Sprite2D" parent="Ground/InfestationBG" index="88"]
+position = Vector2(-2757, -3170)
+texture = ExtResource("19_dfbl7")
+
+[node name="Spikes8" type="Sprite2D" parent="Ground/InfestationBG" index="89"]
+position = Vector2(-2810, -3174)
+texture = ExtResource("21_fxgpf")
+
+[node name="Medium9" type="Sprite2D" parent="Ground/InfestationBG" index="90"]
+position = Vector2(-2803, -2984)
+texture = ExtResource("19_dfbl7")
+
+[node name="Spikes9" type="Sprite2D" parent="Ground/InfestationBG" index="91"]
+position = Vector2(-2352, -3248)
+texture = ExtResource("21_fxgpf")
+
+[node name="Line22" type="Sprite2D" parent="Ground/InfestationBG" index="92"]
+position = Vector2(-2314, -3126)
+rotation = -1.17263
+texture = ExtResource("20_a8e4c")
+
+[node name="Spikes10" type="Sprite2D" parent="Ground/InfestationBG" index="93"]
+position = Vector2(-2466, -3187)
+texture = ExtResource("21_fxgpf")
+
+[node name="Spikes11" type="Sprite2D" parent="Ground/InfestationBG" index="94"]
+position = Vector2(-2769, -2561)
+texture = ExtResource("21_fxgpf")
+
+[node name="Spikes12" type="Sprite2D" parent="Ground/InfestationBG" index="95"]
+position = Vector2(-2725, -2898)
+texture = ExtResource("21_fxgpf")
+
+[node name="Spikes13" type="Sprite2D" parent="Ground/InfestationBG" index="96"]
+position = Vector2(-2375, -2973)
+texture = ExtResource("21_fxgpf")
+
+[node name="Spikes15" type="Sprite2D" parent="Ground/InfestationBG" index="97"]
+position = Vector2(-2044, -3235)
+texture = ExtResource("21_fxgpf")
+
+[node name="Spikes14" type="Sprite2D" parent="Ground/InfestationBG" index="98"]
+position = Vector2(-1891, -3008)
+texture = ExtResource("21_fxgpf")
+
+[node name="Line23" type="Sprite2D" parent="Ground/InfestationBG" index="99"]
+position = Vector2(-2203, -3195)
+rotation = 1.25748
+texture = ExtResource("20_a8e4c")
+
+[node name="Small6" type="Sprite2D" parent="Ground/InfestationBG" index="100"]
+position = Vector2(-3431, -1053)
+texture = ExtResource("18_mxk4j")
+
+[node name="Small7" type="Sprite2D" parent="Ground/InfestationBG" index="101"]
+position = Vector2(-3502, -1117)
+texture = ExtResource("24_2ds8l")
+
+[node name="Spikes26" type="Sprite2D" parent="Ground/InfestationBG" index="102"]
+position = Vector2(-3483, -1067)
+texture = ExtResource("21_fxgpf")
+
+[node name="Small8" type="Sprite2D" parent="Ground/InfestationBG" index="103"]
+position = Vector2(-3616, -1295)
+texture = ExtResource("18_mxk4j")
+
+[node name="Small9" type="Sprite2D" parent="Ground/InfestationBG" index="104"]
+position = Vector2(-3503, -1379)
+texture = ExtResource("24_2ds8l")
+
+[node name="Small10" type="Sprite2D" parent="Ground/InfestationBG" index="105"]
+position = Vector2(-3674, -1605)
+texture = ExtResource("22_rs858")
+
+[node name="Medium6" type="Sprite2D" parent="Ground/InfestationBG" index="106"]
+position = Vector2(-3519, -1444)
+texture = ExtResource("19_dfbl7")
+
+[node name="Line47" type="Sprite2D" parent="Ground/InfestationBG" index="107"]
+position = Vector2(-3616, -1411)
+texture = ExtResource("20_a8e4c")
+
+[node name="Small11" type="Sprite2D" parent="Ground/InfestationBG" index="108"]
+position = Vector2(-3653, -1313)
+texture = ExtResource("33_xldo7")
+
+[node name="Small12" type="Sprite2D" parent="Ground/InfestationBG" index="109"]
+position = Vector2(-3538, -1341)
+texture = ExtResource("24_2ds8l")
+
+[node name="Small13" type="Sprite2D" parent="Ground/InfestationBG" index="110"]
+position = Vector2(-3644, -1457)
+texture = ExtResource("22_rs858")
+
+[node name="Line48" type="Sprite2D" parent="Ground/InfestationBG" index="111"]
+position = Vector2(-2866, -3022)
+texture = ExtResource("20_a8e4c")
+
+[node name="Line49" type="Sprite2D" parent="Ground/InfestationBG" index="112"]
+position = Vector2(-2856, -2674)
+texture = ExtResource("20_a8e4c")
+
+[node name="Line50" type="Sprite2D" parent="Ground/InfestationBG" index="113"]
+position = Vector2(-2701, -3231)
+rotation = 1.43731
+texture = ExtResource("20_a8e4c")
+
+[node name="Line51" type="Sprite2D" parent="Ground/InfestationBG" index="114"]
+position = Vector2(-1552, -3168)
+rotation = 1.08109
+texture = ExtResource("20_a8e4c")
+
+[node name="Line52" type="Sprite2D" parent="Ground/InfestationBG" index="115"]
+position = Vector2(-1271, -3229)
+rotation = 1.60324
+texture = ExtResource("20_a8e4c")
+
+[node name="Line53" type="Sprite2D" parent="Ground/InfestationBG" index="116"]
+position = Vector2(-640, -3259)
+rotation = 1.60324
+texture = ExtResource("20_a8e4c")
+
+[node name="Line54" type="Sprite2D" parent="Ground/InfestationBG" index="117"]
+position = Vector2(-318, -3247)
+rotation = 1.60324
+texture = ExtResource("20_a8e4c")
+
+[node name="Line55" type="Sprite2D" parent="Ground/InfestationBG" index="118"]
+position = Vector2(-2366, -3192)
+rotation = 1.90716
+texture = ExtResource("20_a8e4c")
+
+[node name="Line56" type="Sprite2D" parent="Ground/InfestationBG" index="119"]
+position = Vector2(-896, -3106)
+rotation = 0.625333
+texture = ExtResource("20_a8e4c")
+
+[node name="Spikes27" type="Sprite2D" parent="Ground/InfestationBG" index="120"]
+position = Vector2(-805, -3259)
+texture = ExtResource("21_fxgpf")
+
+[node name="Line57" type="Sprite2D" parent="Ground/InfestationBG" index="121"]
+position = Vector2(-950, -3244)
+rotation = 1.44316
+texture = ExtResource("20_a8e4c")
+
+[node name="Spikes28" type="Sprite2D" parent="Ground/InfestationBG" index="122"]
+position = Vector2(-1402, -3239)
+texture = ExtResource("21_fxgpf")
+
+[node name="Spikes29" type="Sprite2D" parent="Ground/InfestationBG" index="123"]
+position = Vector2(-446, -3242)
+texture = ExtResource("21_fxgpf")
+
+[node name="Medium10" type="Sprite2D" parent="Ground/InfestationBG" index="124"]
+position = Vector2(-949, -2886)
+texture = ExtResource("19_dfbl7")
+
+[node name="Small14" type="Sprite2D" parent="Ground/InfestationBG" index="125"]
+position = Vector2(-1121, -2868)
+texture = ExtResource("24_2ds8l")
+
+[node name="Small15" type="Sprite2D" parent="Ground/InfestationBG" index="126"]
+position = Vector2(-1352, -3197)
+texture = ExtResource("33_xldo7")
+
+[node name="Small16" type="Sprite2D" parent="Ground/InfestationBG" index="127"]
+position = Vector2(-1242, -3179)
+texture = ExtResource("18_mxk4j")
+
+[node name="Medium11" type="Sprite2D" parent="Ground/InfestationBG" index="128"]
+position = Vector2(-1262, -3127)
+texture = ExtResource("19_dfbl7")
+
+[node name="Large12" type="Sprite2D" parent="Ground/InfestationBG" index="129"]
+position = Vector2(-1341, -3064)
+texture = ExtResource("17_tcule")
+
+[node name="Line58" type="Sprite2D" parent="Ground/InfestationBG" index="130"]
+position = Vector2(-1342, -3039)
+texture = ExtResource("20_a8e4c")
+
+[node name="Spikes30" type="Sprite2D" parent="Ground/InfestationBG" index="131"]
+position = Vector2(-1348, -2824)
+texture = ExtResource("21_fxgpf")
+
+[node name="Large13" type="Sprite2D" parent="Ground/InfestationBG" index="132"]
+position = Vector2(-3619, -1681)
+texture = ExtResource("17_tcule")
+
+[node name="Line59" type="Sprite2D" parent="Ground/InfestationBG" index="133"]
+position = Vector2(-2861, -2334)
+texture = ExtResource("20_a8e4c")
+
+[node name="Line60" type="Sprite2D" parent="Ground/InfestationBG" index="134"]
+position = Vector2(-2912, -2000)
+rotation = 0.297439
+texture = ExtResource("20_a8e4c")
+
+[node name="Line61" type="Sprite2D" parent="Ground/InfestationBG" index="135"]
+position = Vector2(-3107, -1759)
+rotation = 1.03405
+texture = ExtResource("20_a8e4c")
+
+[node name="Line62" type="Sprite2D" parent="Ground/InfestationBG" index="136"]
+position = Vector2(-3426, -1704)
+rotation = 1.386
+texture = ExtResource("20_a8e4c")
+
+[node name="Line63" type="Sprite2D" parent="Ground/InfestationBG" index="137"]
+position = Vector2(-3637, -1740)
+rotation = 1.72822
+texture = ExtResource("20_a8e4c")
+
+[node name="Spikes31" type="Sprite2D" parent="Ground/InfestationBG" index="138"]
+position = Vector2(-3474, -1717)
+texture = ExtResource("21_fxgpf")
+
+[node name="Spikes32" type="Sprite2D" parent="Ground/InfestationBG" index="139"]
+position = Vector2(-2849, -2479)
+texture = ExtResource("21_fxgpf")
+
+[node name="Small17" type="Sprite2D" parent="Ground/InfestationBG" index="140"]
+position = Vector2(-2877, -1970)
+texture = ExtResource("33_xldo7")
+
+[node name="Medium12" type="Sprite2D" parent="Ground/InfestationBG" index="141"]
+position = Vector2(-2887, -1916)
+texture = ExtResource("19_dfbl7")
+
+[node name="Small18" type="Sprite2D" parent="Ground/InfestationBG" index="142"]
+position = Vector2(-2872, -1835)
+texture = ExtResource("33_xldo7")
+
+[node name="Small19" type="Sprite2D" parent="Ground/InfestationBG" index="143"]
+position = Vector2(-3041, -1747)
+texture = ExtResource("18_mxk4j")
+
+[node name="Small20" type="Sprite2D" parent="Ground/InfestationBG" index="144"]
+position = Vector2(-2920, -1859)
+texture = ExtResource("33_xldo7")
+
+[node name="Small21" type="Sprite2D" parent="Ground/InfestationBG" index="145"]
+position = Vector2(-2945, -1804)
+texture = ExtResource("18_mxk4j")
+
+[node name="Small22" type="Sprite2D" parent="Ground/InfestationBG" index="146"]
+position = Vector2(-3003, -1725)
+texture = ExtResource("24_2ds8l")
+
+[node name="Spikes33" type="Sprite2D" parent="Ground/InfestationBG" index="147"]
+position = Vector2(-3014, -1707)
+texture = ExtResource("21_fxgpf")
+
+[node name="Line64" type="Sprite2D" parent="Ground/InfestationBG" index="148"]
+position = Vector2(-2913, -1800)
+rotation = 0.821087
+texture = ExtResource("20_a8e4c")
+
+[node name="Line65" type="Sprite2D" parent="Ground/InfestationBG" index="149"]
+position = Vector2(-2837, -2059)
+rotation = -0.383686
+texture = ExtResource("20_a8e4c")
+
+[node name="Spikes34" type="Sprite2D" parent="Ground/InfestationBG" index="150"]
+position = Vector2(-2888, -2207)
+texture = ExtResource("21_fxgpf")
+
+[node name="Spikes35" type="Sprite2D" parent="Ground/InfestationBG" index="151"]
+position = Vector2(-2784, -1918)
+texture = ExtResource("21_fxgpf")
+
+[node name="Medium13" type="Sprite2D" parent="Ground/InfestationBG" index="152"]
+position = Vector2(-3288, -1663)
+texture = ExtResource("19_dfbl7")
+
+[node name="Spikes36" type="Sprite2D" parent="Ground/InfestationBG" index="153"]
+position = Vector2(-3248, -1713)
+texture = ExtResource("21_fxgpf")
+
+[node name="Small23" type="Sprite2D" parent="Ground/InfestationBG" index="154"]
+position = Vector2(-3302, -1695)
+texture = ExtResource("18_mxk4j")
+
+[node name="Line66" type="Sprite2D" parent="Ground/InfestationBG" index="155"]
+position = Vector2(-3114, -1554)
+rotation = 0.44624
+texture = ExtResource("20_a8e4c")
+
+[node name="Line67" type="Sprite2D" parent="Ground/InfestationBG" index="156"]
+position = Vector2(-3133, -1365)
+rotation = 1.54857
+texture = ExtResource("20_a8e4c")
+
+[node name="Spikes37" type="Sprite2D" parent="Ground/InfestationBG" index="157"]
+position = Vector2(-3200, -1386)
+texture = ExtResource("21_fxgpf")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Ground/InfestationBG" index="158"]
+collision_layer = 4
+collision_mask = 11
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ground/InfestationBG/StaticBody2D" index="0"]
+polygon = PackedVector2Array(-2882, -2477, -2366, -2982, -2319, -3117, -2177, -3001, -2046, -2965, -1907, -3003, -1784, -2955, -1506, -2845, -1141, -2780, -533, -2890, -170, -2723, -178, -3272, -1389, -3234, -2826, -3304, -2957, -2729)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Ground/InfestationBG/StaticBody2D" index="1"]
+polygon = PackedVector2Array(-3285, -1335, -3314, -501, -3717, -1012, -3704, -1548, -3906, -1750, -3349, -1726, -3032, -1844, -2876, -2161, -2761, -1914)
+
+[node name="Objects" type="Node2D" parent="Ground" index="3"]
+position = Vector2(3, 0)
+
+[node name="SteamVent" parent="Ground/Objects" index="0" instance=ExtResource("9_7nc30")]
+position = Vector2(5045, -1909)
+
+[node name="SteamVent2" parent="Ground/Objects" index="1" instance=ExtResource("9_7nc30")]
+position = Vector2(-2139, -3113)
+
+[node name="BrokenWall2" parent="Ground/Objects" index="2" instance=ExtResource("3_ui4a5")]
+position = Vector2(136, -1234)
+scale = Vector2(1.3, 1)
+
+[node name="Bed" parent="Ground/Objects" index="3" instance=ExtResource("4_qe6dx")]
+position = Vector2(1519, -632)
+rotation = -1.5708
+
+[node name="Bed2" parent="Ground/Objects" index="4" instance=ExtResource("4_qe6dx")]
+position = Vector2(1975, 2150)
+rotation = 1.5708
+
+[node name="Bed7" parent="Ground/Objects" index="5" instance=ExtResource("4_qe6dx")]
+position = Vector2(4316, 2141)
+rotation = 1.5708
+
+[node name="Bed8" parent="Ground/Objects" index="6" instance=ExtResource("4_qe6dx")]
+position = Vector2(3149, 2150)
+rotation = 1.5708
+
+[node name="Bed3" parent="Ground/Objects" index="7" instance=ExtResource("4_qe6dx")]
+position = Vector2(808, 2154)
+rotation = 1.5708
+
+[node name="Bed4" parent="Ground/Objects" index="8" instance=ExtResource("4_qe6dx")]
+position = Vector2(5026, -606)
+rotation = -1.5708
+
+[node name="Bed5" parent="Ground/Objects" index="9" instance=ExtResource("4_qe6dx")]
+position = Vector2(3877, -623)
+rotation = -1.5708
+
+[node name="Bed6" parent="Ground/Objects" index="10" instance=ExtResource("4_qe6dx")]
+position = Vector2(2698, -615)
+rotation = -1.5708
+
+[node name="Containers" type="Node2D" parent="Ground" index="4"]
+
+[node name="Box" parent="Ground/Containers" index="0" instance=ExtResource("6_82vgk")]
+position = Vector2(915, -837)
+
+[node name="Box2" parent="Ground/Containers" index="1" instance=ExtResource("6_82vgk")]
+position = Vector2(2166, -861)
+
+[node name="Box3" parent="Ground/Containers" index="2" instance=ExtResource("6_82vgk")]
+position = Vector2(3366, -858)
+
+[node name="Box5" parent="Ground/Containers" index="3" instance=ExtResource("6_82vgk")]
+position = Vector2(4860, 2353)
+rotation = -3.14159
+
+[node name="Box6" parent="Ground/Containers" index="4" instance=ExtResource("6_82vgk")]
+position = Vector2(3690, 2370)
+rotation = -3.14159
+
+[node name="Box7" parent="Ground/Containers" index="5" instance=ExtResource("6_82vgk")]
+position = Vector2(2541, 2360)
+rotation = -3.14159
+
+[node name="Box8" parent="Ground/Containers" index="6" instance=ExtResource("6_82vgk")]
+position = Vector2(1418, 2411)
+rotation = 3.14159
+
+[node name="Toilet" parent="Ground/Containers" index="7" instance=ExtResource("5_4lwji")]
+position = Vector2(-5494, -1516)
+
+[node name="Toilet2" parent="Ground/Containers" index="8" instance=ExtResource("5_4lwji")]
+position = Vector2(-4700, -1514)
+
+[node name="Toilet3" parent="Ground/Containers" index="9" instance=ExtResource("5_4lwji")]
+position = Vector2(-3889, -1516)
+
+[node name="Large2" type="Sprite2D" parent="Ground/InfestationFG" index="0"]
+position = Vector2(-2136, -3111)
+texture = ExtResource("17_tcule")
+
+[node name="Spikes" type="Sprite2D" parent="Ground/InfestationFG" index="1"]
+position = Vector2(-2174, -3012)
+texture = ExtResource("21_fxgpf")
+
+[node name="Large3" type="Sprite2D" parent="Ground/InfestationFG" index="2"]
+position = Vector2(-2010, -3079)
+texture = ExtResource("17_tcule")
+
+[node name="Line" type="Sprite2D" parent="Ground/InfestationFG" index="3"]
+position = Vector2(-1965, -3081)
+rotation = 1.40179
+texture = ExtResource("20_a8e4c")
+
+[node name="Small2" type="Sprite2D" parent="Ground/InfestationFG" index="4"]
+position = Vector2(-2042, -2992)
+texture = ExtResource("18_mxk4j")
+
+[node name="Medium4" type="Sprite2D" parent="Ground/InfestationFG" index="5"]
+position = Vector2(-2257, -3136)
+texture = ExtResource("19_dfbl7")
+
+[node name="Medium6" type="Sprite2D" parent="Ground/InfestationFG" index="6"]
+position = Vector2(-2231, -3088)
+texture = ExtResource("19_dfbl7")
+
+[node name="Medium10" type="Sprite2D" parent="Ground/InfestationFG" index="7"]
+position = Vector2(-2170, -3078)
+texture = ExtResource("19_dfbl7")
+
+[node name="Projectiles" parent="." index="2"]
+metadata/_edit_lock_ = true
+
+[node name="AreaExit" type="Area2D" parent="." index="4"]
+position = Vector2(1775, 6388)
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaExit" index="0"]
+position = Vector2(-1771.25, -3077)
+shape = SubResource("RectangleShape2D_iwn82")
+
+[node name="Lights" type="Node2D" parent="." index="5"]
+
+[node name="SimpleLight" parent="Lights" index="0" instance=ExtResource("8_i18ja")]
+position = Vector2(1730, 1479)
+rotation = 1.5708
+
+[node name="SimpleLight2" parent="Lights" index="1" instance=ExtResource("8_i18ja")]
+position = Vector2(2902, 1452)
+rotation = 1.5708
+
+[node name="SimpleLight3" parent="Lights" index="2" instance=ExtResource("8_i18ja")]
+position = Vector2(4072, 1460)
+rotation = 1.5708
+
+[node name="SimpleLight4" parent="Lights" index="3" instance=ExtResource("8_i18ja")]
+position = Vector2(5184, 1458)
+rotation = 1.5708
+
+[node name="SimpleLight5" parent="Lights" index="4" instance=ExtResource("8_i18ja")]
+position = Vector2(4143, -167)
+rotation = -1.5708
+
+[node name="SimpleLight6" parent="Lights" index="5" instance=ExtResource("8_i18ja")]
+position = Vector2(2953, -165)
+rotation = -1.5708
+
+[node name="SimpleLight7" parent="Lights" index="6" instance=ExtResource("8_i18ja")]
+position = Vector2(1794, -172)
+rotation = -1.5708
+
+[node name="SimpleLight8" parent="Lights" index="7" instance=ExtResource("8_i18ja")]
+position = Vector2(621, -169)
+rotation = -1.5708
+
+[node name="LightFanAnimation" parent="Lights" index="8" instance=ExtResource("9_ao4tm")]
+position = Vector2(1, 2726)
+
+[node name="LightFanAnimation2" parent="Lights" index="9" instance=ExtResource("9_ao4tm")]
+position = Vector2(-4726, 10)
+scale = Vector2(4, 4)
+frame_progress = 0.387692
+
+[node name="Infrastructure" type="Sprite2D" parent="Lights" index="10"]
+modulate = Color(1, 1, 1, 0.0941176)
+position = Vector2(2876.63, -1582.54)
+rotation = 1.5708
+scale = Vector2(4.22436, 8.28161)
+texture = ExtResource("12_xd17m")
+
+[node name="Hole" type="Sprite2D" parent="Lights" index="11"]
+modulate = Color(0.772549, 0.192157, 0.243137, 0.227451)
+position = Vector2(-1732, 116)
+scale = Vector2(13, 13)
+texture = ExtResource("13_1cgqi")
+
+[node name="Lattice" type="Sprite2D" parent="Lights" index="12"]
+modulate = Color(1, 1, 1, 0.286275)
+position = Vector2(-5674, -1287)
+texture = ExtResource("14_ojek5")
+
+[node name="Lattice2" type="Sprite2D" parent="Lights" index="13"]
+modulate = Color(1, 1, 1, 0.286275)
+position = Vector2(-4851, -1294)
+texture = ExtResource("14_ojek5")
+
+[node name="Lattice3" type="Sprite2D" parent="Lights" index="14"]
+modulate = Color(1, 1, 1, 0.286275)
+position = Vector2(-4093, -1312)
+texture = ExtResource("14_ojek5")
+
+[node name="Player" parent="." index="7"]
+position = Vector2(-3, 2720)
+
+[connection signal="body_entered" from="AreaExit" to="." method="_on_area_exit_body_entered"]

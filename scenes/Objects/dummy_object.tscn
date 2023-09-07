@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://dltq7abd1chr2"]
+
+[ext_resource type="Script" path="res://scenes/Objects/dummy_object.gd" id="1_1ah5o"]
+
+[node name="DummyObject" type="StaticBody2D" groups=["Container"]]
+collision_layer = 4
+collision_mask = 11
+script = ExtResource("1_1ah5o")
+
+[node name="Base" type="Sprite2D" parent="."]
+
+[node name="Lid" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="SpawnPosition" type="Node2D" parent="."]

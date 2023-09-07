@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=3 uid="uid://c3hlifg0khqac"]
+
+[ext_resource type="Texture2D" uid="uid://cxvhp7jj764pv" path="res://graphics/objects/box/base.png" id="1_5rjm2"]
+[ext_resource type="PackedScene" uid="uid://dltq7abd1chr2" path="res://scenes/Objects/dummy_object.tscn" id="1_e7e8q"]
+[ext_resource type="Script" path="res://scenes/Objects/box.gd" id="2_3kb11"]
+[ext_resource type="Texture2D" uid="uid://dhlkcl3xniq22" path="res://graphics/objects/box/lid.png" id="2_a77ts"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_epaf8"]
+size = Vector2(356, 162)
+
+[node name="Box" instance=ExtResource("1_e7e8q")]
+script = ExtResource("2_3kb11")
+amt = 5
+
+[node name="Base" parent="." index="0"]
+position = Vector2(0, 12)
+texture = ExtResource("1_5rjm2")
+
+[node name="Lid" parent="." index="1"]
+position = Vector2(0, -2)
+texture = ExtResource("2_a77ts")
+
+[node name="CollisionShape2D" parent="." index="2"]
+shape = SubResource("RectangleShape2D_epaf8")
+
+[node name="Marker2D" type="Marker2D" parent="SpawnPosition" index="0"]
+position = Vector2(-162, -62)
+
+[node name="Marker2D8" type="Marker2D" parent="SpawnPosition" index="1"]
+position = Vector2(-87, 0)
+
+[node name="Marker2D9" type="Marker2D" parent="SpawnPosition" index="2"]
+position = Vector2(91, 0)
+
+[node name="Marker2D10" type="Marker2D" parent="SpawnPosition" index="3"]
+position = Vector2(124, 58)
+
+[node name="Marker2D11" type="Marker2D" parent="SpawnPosition" index="4"]
+position = Vector2(-121, 58)
+
+[node name="Marker2D2" type="Marker2D" parent="SpawnPosition" index="5"]
+position = Vector2(-162, 58)
+
+[node name="Marker2D3" type="Marker2D" parent="SpawnPosition" index="6"]
+position = Vector2(158, 58)
+
+[node name="Marker2D4" type="Marker2D" parent="SpawnPosition" index="7"]
+position = Vector2(158, -62)
+
+[node name="Marker2D5" type="Marker2D" parent="SpawnPosition" index="8"]
+position = Vector2(0, -62)
+
+[node name="Marker2D6" type="Marker2D" parent="SpawnPosition" index="9"]
+position = Vector2(0, 58)
+
+[node name="Marker2D7" type="Marker2D" parent="SpawnPosition" index="10"]
+position = Vector2(1, 1)
